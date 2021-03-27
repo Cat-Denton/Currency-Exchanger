@@ -5,8 +5,12 @@ import './css/styles.css';
 import ExchangeRateService from './exchange-rate-service';
 
 function fillDropDown(response) {
-  let rateKeys = Object.keys(response.conversion_rates);
-  rateKeys.forEach(element => $("#currency").append(`<option>${element}</option>`));
+  if (response.conversion_rates) {
+    let rateKeys = Object.keys(response.conversion_rates);
+    rateKeys.forEach(element => $("#currency").append(`<option>${element}</option>`));
+  } else {
+    $("#showErrors").text(`There was an error: ${response}`);
+  }
 }
 
 async function makeApiCall(currency) {
