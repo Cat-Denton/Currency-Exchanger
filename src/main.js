@@ -13,15 +13,26 @@ function showErrors(error) {
   $("#showErrors").text(`There was an error: ${error}`);
 }
 
+function convert (amount,currency1,currency2) {
+  return (amount/currency1*currency2).toFixed(2);
+}
+
 let currency = "USD";
 ExchangeRateService.getRate(currency)
   .then(function(currencyResponse) {
     if (currencyResponse instanceof Error) {
-      throw Error(`Currency Exchange API error: ${currencyResponse.message}`);
+      throw Error(`Currency Exchange API error: ${currencyResponse.message}`)
     }
     const exchangeRates = currencyResponse.conversion_rates;
-    console.log(exchangeRates)
     fillDropDown(exchangeRates);
+    $("#money").click(()=> {
+      const amount = $("#amount").val();
+      const selection = $("#currency").val();
+      const currency1 = exchangeRates[currency]
+      const currency2 = exchangeRates[selection]
+      $("#convertedCurrency").text(convert(amount,currency1,currency2));
+      event.preventDefault();
+    })
   })
   .catch(function(error) {
     showErrors(error.message)
