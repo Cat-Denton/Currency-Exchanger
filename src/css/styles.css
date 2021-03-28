@@ -1,3 +1,9 @@
 body {
   background-color: peachpuff;
 }
+
+.btn {
+  outline: 3px black;
+  background-color: cadetblue;
+  margin: 5px;
+}
