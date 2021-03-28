@@ -4,11 +4,14 @@
 <body>
   <div class="container">
     <form id="currency-choice">
+      <label for="amount">Input amount of money in US Dollars to convert:</label>
+      <input type="text" id="amount">
       <select class="form-control" id="currency">
 
       </select>
-      <button type="submit">Convert from USD to the selected currency!</button>
+      <button type="submit" id="money">Convert from USD to the selected currency!</button>
     </form>
     <p id="showErrors"></p>
+    <p id="convertedCurrency"></p>
   </div>  
 </body>
