@@ -3,16 +3,23 @@
 </head>
 <body>
   <div class="container">
-    
+    <!-- <div class="form-control"> -->
       <form id="currency-choice">
         <label for="amount">Input amount of money in US Dollars to convert:</label>
-        <input type="text" id="amount">
+        <input type="text" id="amount" required>
         <select class="form-control" id="currency">
+          <option value="zzz">zzz</option>
         </select>
-        <button type="submit" id="money" class="btn">Convert from USD to the selected currency!</button>
-      </form>
-    
-    <p id="showErrors"></p>
-    <p id="convertedCurrency"></p>
+      <button type="submit" id="money" class="btn">Convert from USD to the selected currency!</button>
+    </form>
+    <!-- </div> -->
+    <div id="hiddenError">
+      <h3>Error!</h3>
+      <p id="showErrors"></p>
+    </div>
+    <div id="hiddenResult">
+      <h3>Your result:</h3>
+      <p id="convertedCurrency"></p>
+    </div>
   </div>  
 </body>

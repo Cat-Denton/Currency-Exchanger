@@ -7,3 +7,12 @@ body {
   background-color: cadetblue;
   margin: 5px;
 }
+
+#hiddenError {
+  color: red;
+  display:none;
+}
+
+#hiddenResult {
+  display:none;
+}
